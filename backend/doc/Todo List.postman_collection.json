@@ -1,0 +1,1750 @@
+{
+	"info": {
+		"_postman_id": "83cd2f41-437f-403f-b8da-7785fb2a80e2",
+		"name": "Todo List",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27318550",
+		"_collection_link": "https://red-equinox-729398.postman.co/workspace/Team-Workspace~7b113e05-3c92-439f-8da3-82bae99c4e43/collection/27318550-83cd2f41-437f-403f-b8da-7785fb2a80e2?action=share&source=collection_link&creator=27318550"
+	},
+	"item": [
+		{
+			"name": "Todo Group",
+			"item": [
+				{
+					"name": "Get All Todo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pageSize\":5,\n    \"pageNumber\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/todos",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"todos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Successful Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pageSize\":10,\n    \"pageNumber\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"message\": \"successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"HomeWork\",\n            \"todos\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"Todo 1\",\n                    \"date\": \"2023-12-06T11:00:22.700Z\",\n                    \"isCompleted\": false\n                },\n                {\n                    \"id\": 2,\n                    \"name\": \"Todo 2\",\n                    \"date\": \"2023-12-06T11:00:22.700Z\",\n                    \"isCompleted\": false\n                },\n                {\n                    \"id\": 3,\n                    \"name\": \"Todo 3\",\n                    \"date\": \"2023-12-06T11:00:22.700Z\",\n                    \"isCompleted\": false\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Office\",\n            \"todos\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"Todo 1\",\n                    \"date\": \"2023-12-06T11:00:22.700Z\",\n                    \"isCompleted\": false\n                },\n                {\n                    \"id\": 5,\n                    \"name\": \"Todo 2\",\n                    \"date\": \"2023-12-06T11:00:22.700Z\",\n                    \"isCompleted\": false\n                },\n                {\n                    \"id\": 6,\n                    \"name\": \"Todo 3\",\n                    \"date\": \"2023-12-06T11:00:22.700Z\",\n                    \"isCompleted\": false\n                }\n            ]\n        },\n        {\n            \"id\": 3,\n            \"title\": \"Personal\",\n            \"todos\": []\n        }\n    ]\n}"
+						},
+						{
+							"name": "Error page number cant empty Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pageSize\":5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": {
+										"content": "",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"column \\\"nan\\\" does not exist\"\n}"
+						},
+						{
+							"name": "error page number must be number",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pageNumber\":\"four\",\n    \"pageSize\":2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"column \\\"nan\\\" does not exist\"\n}"
+						},
+						{
+							"name": "error pageSize must be number",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pageNumber\":2,\n    \"pageSize\":\"four\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"column \\\"nan\\\" does not exist\"\n}"
+						},
+						{
+							"name": "Error page number must be greater than 0",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pageNumber\": 0,\n    \"pageSize\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"OFFSET must not be negative\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Todo By Group",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/todos/:group",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"todos",
+								":group"
+							],
+							"variable": [
+								{
+									"key": "group",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/todos/:group",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"message\": \"successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"group_id\": 1,\n            \"name\": \"Todo 1\",\n            \"date\": \"2023-12-06T11:00:22.700Z\",\n            \"isCompleted\": false,\n            \"todo_group\": {\n                \"title\": \"HomeWork\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"group_id\": 1,\n            \"name\": \"Todo 2\",\n            \"date\": \"2023-12-06T11:00:22.700Z\",\n            \"isCompleted\": false,\n            \"todo_group\": {\n                \"title\": \"HomeWork\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"group_id\": 1,\n            \"name\": \"Todo 3\",\n            \"date\": \"2023-12-06T11:00:22.700Z\",\n            \"isCompleted\": false,\n            \"todo_group\": {\n                \"title\": \"HomeWork\"\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "error group must be number",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/todos/:group",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "test"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"invalid input syntax for type integer: \\\"test\\\"\"\n}"
+						},
+						{
+							"name": "error not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/todos/:group",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "99999"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"Data not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Group",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"cooking\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/todos",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"todos"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"cooking\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"message\": \"Todo title created successfully\"\n}"
+						},
+						{
+							"name": "error field cant be empty",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/todos",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"\\\"title\\\" is required\"\n}"
+						},
+						{
+							"name": "error title field must be string",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":123\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"\\\"title\\\" must be a string\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit title",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"Homework\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/todos/:group",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"todos",
+								":group"
+							],
+							"variable": [
+								{
+									"key": "group",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"Homework\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"message\": \"title updated successfully\"\n}"
+						},
+						{
+							"name": "error title field must be string",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":123\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"\\\"title\\\" must be a string\"\n}"
+						},
+						{
+							"name": "error title field cant be empty",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/todos/:group",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"\\\"title\\\" is required\"\n}"
+						},
+						{
+							"name": "error id must be number",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"Homework\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "one"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"invalid input syntax for type integer: \\\"one\\\"\"\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\":\"Homework\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "999"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"Data not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete group and todo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/todos/:group",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"todos",
+								":group"
+							],
+							"variable": [
+								{
+									"key": "group",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/todos/:group",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"message\": \"todo deleted successfully\"\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/todos/:group",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "99999"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"Data not found\"\n}"
+						},
+						{
+							"name": "error group must be number",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/todos/:group",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "one"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"invalid input syntax for type integer: \\\"one\\\"\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Todo",
+			"item": [
+				{
+					"name": "Add todo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"check email\",\n    \"isCompleted\": false,\n    \"date\": \"2023-10-11 08:00\"\n}"
+						},
+						"url": {
+							"raw": "localhost:8000/api/todos/:group/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"todos",
+								":group",
+								""
+							],
+							"variable": [
+								{
+									"key": "group",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"check email\",\n    \"isCompleted\": false,\n    \"date\": \"2023-10-11 08:00\"\n}"
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										""
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"message\": \"Todo created successfully\",\n    \"data\": {\n        \"id\": 7,\n        \"group_id\": 2,\n        \"name\": \"check email\",\n        \"isCompleted\": false,\n        \"date\": \"2023-10-11T01:00:00.000Z\",\n        \"updatedAt\": \"2023-12-06T14:02:41.368Z\",\n        \"createdAt\": \"2023-12-06T14:02:41.368Z\"\n    }\n}"
+						},
+						{
+							"name": "error group must be number",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"check email\",\n    \"isCompleted\": false,\n    \"date\": \"2023-10-11 08:00\"\n}"
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										""
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "one"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"invalid input syntax for type integer: \\\"one\\\"\"\n}"
+						},
+						{
+							"name": "rror name field cant be empty",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"isCompleted\": false,\n    \"date\": \"2023-10-11 08:00\"\n}"
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										""
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"\\\"name\\\" is required\"\n}"
+						},
+						{
+							"name": "error name field must be string",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":123,\n    \"isCompleted\": false,\n    \"date\": \"2023-10-11 08:00\"\n}"
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										""
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"\\\"name\\\" must be a string\"\n}"
+						},
+						{
+							"name": "error date field must be date type",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"check email\",\n    \"isCompleted\": false,\n    \"date\": 123\n}"
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										""
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"date must be date\"\n}"
+						},
+						{
+							"name": "error isCompleted field must be boolean",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"check email\",\n    \"isCompleted\": false,\n    \"date\": \"2023-10-11 08:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										""
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"\\\"isCompleted\\\" must be a boolean\"\n}"
+						}
+					]
+				},
+				{
+					"name": "edit todo",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isCompleted\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/todos/:group/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"todos",
+								":group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "group",
+									"value": "2"
+								},
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"cooking\",\n    \"isCompleted\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										},
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"message\": \"todo updated successfully\"\n}"
+						},
+						{
+							"name": "error id must be number",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"cooking\",\n    \"isCompleted\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										},
+										{
+											"key": "id",
+											"value": "four"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"invalid input syntax for type integer: \\\"two\\\"\"\n}"
+						},
+						{
+							"name": "error group must be number Copy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"check email\",\n    \"isCompleted\": false,\n    \"date\": \"2023-10-11 08:00\"\n}"
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "one"
+										},
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"invalid input syntax for type integer: \\\"one\\\"\"\n}"
+						},
+						{
+							"name": "not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"cooking\",\n    \"isCompleted\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										},
+										{
+											"key": "id",
+											"value": "555"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"Data not found\"\n}"
+						},
+						{
+							"name": "error isCompleted field must be boolean",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"check email\",\n    \"isCompleted\": false,\n    \"date\": \"2023-10-11 08:00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										},
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"\\\"isCompleted\\\" must be a boolean\"\n}"
+						},
+						{
+							"name": "error date field must be date type Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"check email\",\n    \"isCompleted\": false,\n    \"date\": 123\n}"
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										},
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"date must be date\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete todo",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/todos/:group/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"todos",
+								":group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "group",
+									"value": "2"
+								},
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										},
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": true,\n    \"message\": \"todo deleted successfully\"\n}"
+						},
+						{
+							"name": "notfound",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										},
+										{
+											"key": "id",
+											"value": "999"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"Data not found\"\n}"
+						},
+						{
+							"name": "error group must be number",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"cooking\",\n    \"isCompleted\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "two"
+										},
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"invalid input syntax for type integer: \\\"two\\\"\"\n}"
+						},
+						{
+							"name": "error id must be number",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"cooking\",\n    \"isCompleted\":true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/todos/:group/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"todos",
+										":group",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "group",
+											"value": "2"
+										},
+										{
+											"key": "id",
+											"value": "four"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"succes\": false,\n    \"message\": \"invalid input syntax for type integer: \\\"two\\\"\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://farming-simulator.pstmn.io"
+		}
+	]
+}
